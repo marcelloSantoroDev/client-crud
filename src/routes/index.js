@@ -4,6 +4,6 @@ const router = express.Router();
 
 const clientRoute = require('./client.route');
 
-router.use('/client', clientRoute);
+router.use('/clients', clientRoute);
 
 module.exports = router;
