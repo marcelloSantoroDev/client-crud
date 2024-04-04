@@ -32,7 +32,7 @@ const updateClient = async (req, res) => {
     const { name, email, birthdate, phone, cpf } = req.body;
     const { type, message } = await clientService.updateClient({ name, email, birthdate, phone, cpf }, id);
     if (type) return res.status(400).json({ message });
-    res.status(200).json(message);
+    res.status(200).json("Dados alterados.");
 };
 
 module.exports = {
