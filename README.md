@@ -1,6 +1,6 @@
 ## Descrição
 
-A aplicação é um CRUD para clientes Node.js, utilizando Typescript em POO
+A aplicação é um CRUD para clientes Node.js, utilizando Typescript em POO.
 
 ## Instruções para subir o servidor back-end (com Docker)
 
@@ -16,7 +16,7 @@ A aplicação é um CRUD para clientes Node.js, utilizando Typescript em POO
 
 Utilize qualquer ferramente para APIs REST para testar com a rota `http://localhost:3001/clients`
 
-Para facilitar, você pode copiar e colar o objeto abaixo
+Para facilitar, você pode copiar o objeto abaixo:
 
 ```
 {
