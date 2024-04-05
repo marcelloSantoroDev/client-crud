@@ -6,7 +6,7 @@ A aplicação é um CRUD para clientes Node.js, utilizando Typescript em POO
 
 1. Certifique-se de ter o Docker instalado em sua máquina.
 2. Certifique-se de configurar o arquivo .env.example, bem como retirar o .example
-3. Abra um terminal na pasta /app/backend do projeto.
+3. Abra um terminal na pasta / do projeto.
 4. Execute o comando `npm install` para instalar as dependências do projeto.
 5. Execute o comando `docker build -t [DB_NAME definido no .env] .` para construir a imagem do MySQL.
 6. Execute o comando `docker-compose up -d` para subir o container do MySQL.
