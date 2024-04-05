@@ -1,6 +1,6 @@
 const { emailSchema } = require('./schemas')
 
-const validateEmail = (email) => {
+const validateEmail = (email: string) => {
     const { error } = emailSchema.validate(email);
 
     if (error) {
@@ -10,4 +10,4 @@ const validateEmail = (email) => {
     return true;
 };
 
-module.exports = validateEmail;
+export default validateEmail;
