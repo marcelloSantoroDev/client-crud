@@ -16,7 +16,7 @@ export default class ClientService {
         const checkNull = fieldsArr.some((item) => item === "");
 
         if (checkNull) {
-            return { type: 'error', message: 'Todos os campos devem ser preenchidos' };
+            return { type: 'error', message: 'Preencha os campos obrigatórios' };
         }
 
         const userExists = await clients.findOne({ where: { email } });
@@ -58,8 +58,24 @@ export default class ClientService {
     }
 
     public updateClient = async ({ name, email, birthdate, phone, cpf }: Client, id: number) => {
+        const fieldsArr = [name, email, birthdate, cpf];
+        const checkNull = fieldsArr.some((item) => item === "");
+
+        if (checkNull) {
+            return { type: 'error', message: 'Preencha os campos obrigatórios' };
+        }
+
+
+        const emailValid = emailValidation(email);
+
+        if (!emailValid) {
+            return { type: 'invalid_email', message: 'Formato inválido de e-mail' }
+        }
+        
         const [message] = await clients.update({ name, email, birthdate, phone, cpf }, { where: { id } });
+
         if (message === 0) return { type: 'error', message: 'Cliente não encontrado' };
+
         return { type: null, message: '' };
     }
 
