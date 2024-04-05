@@ -13,6 +13,21 @@ A aplicação é um CRUD para clientes Node.js, utilizando Typescript em POO
 7. Execute o comando `npm run db` no terminal da sua máquina para criar o banco de dados e a tabela.
 8. Execute o comando `npm run dev` para subir o servidor.
 
+
+Utilize qualquer ferramente para APIs REST para testar com a rota `http://localhost:3001/clients`
+
+Para facilitar, você pode copiar e colar o objeto abaixo
+
+`
+{
+  "name": "Marcello",
+  "email": "marcello@gmail.com",
+  "birthdate": "1991/12/09",
+  "phone":  "977772222",
+  "cpf": "12345678977"
+}
+`
+
 ## Testes
 
 Os testes neste repositório foram elaborados para garantir a funcionalidade correta das rotas de um aplicativo CRUD. Eles foram desenvolvidos utilizando as bibliotecas Sinon, Mocha, Chai e Jest para criar e simular cenários diversos.
