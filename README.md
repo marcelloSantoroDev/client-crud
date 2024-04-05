@@ -1,6 +1,6 @@
 ## Descrição
 
-A aplicação é um CRUD para clientes em Node.js, utilizando Typescript em POO.
+A aplicação é um CRUD para clientes em Node.js, utilizando Typescript e POO.
 
 ## Instruções para subir o servidor back-end (com Docker)
 
@@ -14,7 +14,7 @@ A aplicação é um CRUD para clientes em Node.js, utilizando Typescript em POO.
 8. Execute o comando `npm run dev` para subir o servidor.
 
 
-Utilize qualquer ferramente para APIs REST para testar com a rota `http://localhost:3001/clients`
+Utilize qualquer ferramenta para APIs REST para testar com a rota `http://localhost:3001/clients`
 
 Para facilitar, você pode copiar o objeto abaixo:
 
@@ -30,4 +30,7 @@ Para facilitar, você pode copiar o objeto abaixo:
 
 ## Testes
 
-Os testes neste repositório foram elaborados para garantir a funcionalidade correta das rotas de um aplicativo CRUD. Eles foram desenvolvidos utilizando as bibliotecas Sinon, Mocha, Chai e Jest para criar e simular cenários diversos.
+Os testes neste repositório foram elaborados para garantir a funcionalidade correta das rotas de um aplicativo CRUD. Eles foram desenvolvidos utilizando as bibliotecas Sinon, Mocha, Chai e Jest
+para criar e simular cenários diversos.
+
+Para rodá-los, basta executar `npm test` no terminal na pasta /
