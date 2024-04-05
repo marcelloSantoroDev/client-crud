@@ -1,9 +1,11 @@
-import sinon from 'sinon';
-import chai from 'chai';
-import chaiHttp from 'chai-http';
+import * as sinon from 'sinon';
+import * as chai from 'chai';
+// @ts-ignore
+import chaiHttp = require('chai-http');
 import clientModel from '../models/clients';
-import { getClients, getClient } from './mocks';
-import app from '../../src/app';
+import  getClient from './mocks';
+import getClients from './mocks';
+import { App } from '../app';
 
 chai.use(chaiHttp);
 
@@ -18,9 +20,9 @@ describe('testa a rota GET /clients', function () {
     it('testa se é possível listar todos os clientes', async function () {
         sinon
             .stub(clientModel, "findAll")
-            .resolves(getClients);
+            .resolves(getClients as any);
 
-        chaiHttpResponse = await chai.request(app).get('/clients');
+        chaiHttpResponse = await chai.request(App).get('/clients');
         expect(chaiHttpResponse.status).to.be.equal(200);
         expect(chaiHttpResponse.body).to.be.deep.equal(getClients);
     });
@@ -28,9 +30,9 @@ describe('testa a rota GET /clients', function () {
     it('testa se é possível listar um cliente específico', async function () {
         sinon
             .stub(clientModel, "findOne")
-            .resolves(getClient);
+            .resolves(getClient as any);
 
-        chaiHttpResponse = await chai.request(app).get('/clients/1');
+        chaiHttpResponse = await chai.request(App).get('/clients/1');
         expect(chaiHttpResponse.status).to.be.equal(200);
         expect(chaiHttpResponse.body).to.be.deep.equal(getClient);
     });
@@ -40,7 +42,7 @@ describe('testa a rota GET /clients', function () {
             .stub(clientModel, "findOne")
             .resolves(null);
 
-        chaiHttpResponse = await chai.request(app).get('/clients/2');
+        chaiHttpResponse = await chai.request(App).get('/clients/2');
         expect(chaiHttpResponse.status).to.be.equal(400);
         expect(chaiHttpResponse.body).to.be.deep.equal({ "message": "Cliente não encontrado" });
     });
@@ -50,9 +52,9 @@ describe('Testa a rota POST de /clients', function () {
     it('testa se é possível cadastrar um cliente', async function () {
         sinon
             .stub(clientModel, "create")
-            .resolves(getClient);
+            .resolves(getClient as any);
 
-        const chaiHttpResponse = await chai.request(app).post('/clients').send(getClient);
+        const chaiHttpResponse = await chai.request(App).post('/clients').send(getClient);
         expect(chaiHttpResponse.status).to.be.equal(201);
         expect(chaiHttpResponse.body).to.be.deep.equal(getClient);
     });
@@ -62,7 +64,7 @@ describe('Testa a rota POST de /clients', function () {
             .stub(clientModel, "create")
             .rejects({ message: "Cliente já cadastrado" });
 
-        const chaiHttpResponse = await chai.request(app).post('/clients').send(getClient);
+        const chaiHttpResponse = await chai.request(App).post('/clients').send(getClient);
         expect(chaiHttpResponse.status).to.be.equal(400);
         expect(chaiHttpResponse.body).to.be.deep.equal({ "message": "Cliente já cadastrado" });
     });
@@ -76,9 +78,9 @@ describe('testa a rota PUT de /clients', function () {
     it('testa se é possível atualizar um cliente', async function () {
         sinon
             .stub(clientModel, "update")
-            .resolves("Dados alterados.");
+            .resolves("Dados alterados." as any);
 
-        const chaiHttpResponse = await chai.request(app).put('/clients/1').send(getClient);
+        const chaiHttpResponse = await chai.request(App).put('/clients/1').send(getClient);
         expect(chaiHttpResponse.status).to.be.equal(200);
         expect(chaiHttpResponse.body).to.be.deep.equal("Dados alterados.");
     });
@@ -93,7 +95,7 @@ describe('testa a rota DELETE de /clients', function () {
         sinon
             .stub(clientModel, "destroy");
 
-        const chaiHttpResponse = await chai.request(app).delete('/clients/1');
+        const chaiHttpResponse = await chai.request(App).delete('/clients/1');
         expect(chaiHttpResponse.status).to.be.equal(204);
     });
 });

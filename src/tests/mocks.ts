@@ -34,7 +34,7 @@ const getClient = {
     "cpf": "12354678999"
 };
 
-module.exports = {
+export default {
     getClients,
     getClient
 };

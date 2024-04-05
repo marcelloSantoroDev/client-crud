@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import routes from './routes';
 
 class App {
@@ -31,3 +31,5 @@ class App {
 }
 
 export { App };
+
+export const { app } = new App();
