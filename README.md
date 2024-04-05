@@ -18,7 +18,7 @@ Utilize qualquer ferramente para APIs REST para testar com a rota `http://localh
 
 Para facilitar, você pode copiar e colar o objeto abaixo
 
-`
+```
 {
   "name": "Marcello",
   "email": "marcello@gmail.com",
@@ -26,7 +26,7 @@ Para facilitar, você pode copiar e colar o objeto abaixo
   "phone":  "977772222",
   "cpf": "12345678977"
 }
-`
+```
 
 ## Testes
 
