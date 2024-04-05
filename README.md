@@ -1,6 +1,6 @@
 ## Descrição
 
-A aplicação é um CRUD para clientes Node.js, utilizando Typescript em POO.
+A aplicação é um CRUD para clientes em Node.js, utilizando Typescript em POO.
 
 ## Instruções para subir o servidor back-end (com Docker)
 
